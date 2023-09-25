@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+
+  header {
+    background: repeating-linear-gradient(90deg, #1929b3, #1929b3 20px, #fff 20px, #fff 40px);
+    height: 120px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header a {
+    color: rgb(210, 245, 10); 
+    text-decoration: none; 
+    font-size: 20px;
+  }
+
+  header h2 {
+    font-family: "font-family: 'Kosugi Maru', sans-serif;";
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    margin-left: 20px;
+  }
+
+  .header-list {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 250px;
+
+  }
+
+  header ul {
+    display: flex;
+    align-items: center;
+  }
+
+  header li {
+    background-color: black;
+    border-radius: 10px;
+    list-style: none;
+    margin-right: 40px;
+    padding: 7px;
+  
+  }
+
+  .index-mypage{
+    font-size: 20px;
+    position: relative;
+    right: 100px;
+    background: black;
+    height: 40px;
+    padding-top: 6px;
+    text-align: center;
+    border-radius: 10px;
+
+  }
+
+
+
+
+  

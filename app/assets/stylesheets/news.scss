@@ -1,0 +1,86 @@
+// Place all the styles related to the balls controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+h1 {
+    text-align: center;
+    margin-top: 0%;
+    color: #020000;
+    background-color: yellow;
+}
+
+.new-post-box{
+    display: flex;
+  
+    height: 300px;
+    overflow-x: scroll;
+    
+}
+
+.new-post-box div{
+    width: 30%;
+    margin: 5px;
+    font-size: 30px;
+    border: solid 3px #020000;
+    flex-shrink: 0;
+    
+}
+
+.new-post{
+    display       : inline-block;
+    border-radius : 27%;          /* 角丸       */
+    font-size     : 26pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 14px 81px;   /* 余白       */
+    background    : #0000b3;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #0000b3;    /* 枠の指定 */
+    position: relative;
+    top: 400px;
+    left: 611px;
+
+
+}
+
+
+.new-post:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #0000b3;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+}
+
+#map-search{
+    position: relative;
+    left: 63px;
+    bottom: 150px;
+    font-size: 20px;
+}
+
+
+
+
+h3{
+    color: #0000b3;
+    font-size: 40px;
+    position: relative;
+    bottom: 170px;
+    left: 60px;
+
+}
+
+
+.back{
+    font-size: 30px;
+    position: relative;
+    top: 390px;
+    margin: 0px 30px 0px 30px;
+
+}
+
+.map{
+    position: relative;
+}
+

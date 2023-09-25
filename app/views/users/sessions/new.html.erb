@@ -1,0 +1,39 @@
+
+
+<div class="wrapper">
+  <video autoplay loop muted class="wrapper__video">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-football-soccer-field-9660-large.mp4">
+  </video>  
+
+  <div class="login">
+    <h30>Log in</h30>
+ 
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+      <%= f.text_field :email, class: "form-control", placeholder: "email" %>
+    </div>
+
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+      <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <button type="submit" class="float">Login</button>
+   <% end %>
+ 
+   <%= render "users/shared/links" %> 
+  </div>
+
+
+
+
+</div>
+

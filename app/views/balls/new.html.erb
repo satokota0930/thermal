@@ -1,0 +1,154 @@
+<h2>新規投稿ページ</h2>
+<%= form_for @ball do |f| %>
+<div class="new-post-box">
+  
+  
+  <div style="mvp-post">
+    <%= f.label :私の選ぶMVP %>
+    
+     <%= f.text_field :title, :size => 30 %>
+    
+  </div>
+
+
+
+  <div style="play-team-post">
+    <%= f.label :今日の対戦チーム  %>
+    <%= f.select :teamname, 
+    [["ベガルタ仙台", "ベガルタ仙台"], 
+    ["ブラウブリッツ秋田", "ブラウブリッツ秋田"],
+    ["いわきFC", "いわきFC"],
+    ["水戸ホーリーホック", "水戸ホーリーホック"],
+    ["栃木SC", "栃木SC"],
+    ["ザスパクサツ群馬", "ザスパクサツ群馬"],
+    ["大宮アルディージャ", "大宮アルディージャ"],
+    ["ジェフユナイテッド千葉", "ジェフユナイテッド千葉"],
+    ["東京ヴェルディ", "東京ヴェルディ"],
+    ["FC町田ゼルビア", "FC町田ゼルビア"],
+    ["ヴァンフォーレ甲府", "ヴァンフォーレ甲府"],
+    ["ツエーゲン金沢", "ツエーゲン金沢"],
+    ["清水エスパルス", "清水エスパルス"],
+    ["ジュビロ磐田", "ジュビロ磐田"],
+    ["藤枝MYFC", "藤枝MYFC"],
+    ["ファジアーノ岡山", "ファジアーノ岡山"],
+    ["レノファ山口FC", "レノファ山口FC"],
+    ["徳島ヴォルティス", "徳島ヴォルティス"],
+    ["V・ファーレン長崎", "V・ファーレン長崎"],
+    ["ロアッソ熊本", "ロアッソ熊本"],
+    ["大分トリニータ", "大分トリニータ"]], include_blank: "対戦チームを選択", :size => 30 %>
+  </div>
+ 
+
+   
+  
+   
+  <div style="picture-post">
+    <%= f.label :今日のワンショット %>
+    <%= f.file_field :image %>
+  </div>
+ 
+  
+  
+  <div style="explain-post">
+    <%= f.label :投稿の説明  %>
+    <%= f.text_area :body, :size => "30x2" %>
+  </div>
+  
+  <div style="video-post">
+    <%= f.label :video %>
+    <%= f.file_field :video, :accept => 'video/*' %>
+  </div>
+
+
+</div>
+
+<div style="google-map;position: relative;top: 300px;left: 20px;font-size: 20px">
+  <%= f.label :lat,"緯度" %>
+  <%= f.text_field :lat,:value =>"緯度", id: :lat %>
+  <%= f.label :lng,"経度" %>
+  <%= f.text_field :lng,:value =>"経度", id: :lng %>
+</div>
+
+<br>
+  <%= f.submit "投稿する",class:"new-post"%>
+ 
+<% end %>
+
+<div class="back">
+ <%= link_to "投稿一覧に戻る", balls_path %>
+</div>
+
+<h3>開催スタジアム</h3>
+
+<div id='map-search'>
+  <input id="address" type="textbox" value="ここに入力">
+  <input type="button" value="スタジアムを検索" onclick="codeAddress()">
+  <p>マーカーをドラック＆ドロップで位置の調整ができます。<p>
+</div>
+
+
+<div class="map">
+  <style>
+    #map {
+      height: 300px;
+      width: 300px;
+    }
+  </style>
+
+
+  <script>
+  //初期マップの設定
+  let map
+  let marker
+  function initMap(){
+    geocoder = new google.maps.Geocoder()
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center:  {lat: 35.6803997, lng:139.7690174},  //東京
+      zoom: 15,
+      
+    });
+  }
+
+  //検索後のマップ作成
+  let geocoder
+  let aft
+  function codeAddress(){
+    let inputAddress = document.getElementById('address').value;
+    geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+      if (status == 'OK') {
+          //マーカーが複数できないようにする
+          if (aft == true){
+              marker.setMap(null);
+          }
+
+          //新しくマーカーを作成する
+          map.setCenter(results[0].geometry.location);
+              marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location,
+              draggable: true	// ドラッグ可能にする
+          });
+
+          //二度目以降か判断
+          aft = true
+
+          //検索した時に緯度経度を入力する
+          document.getElementById('lat').value = results[0].geometry.location.lat();
+          document.getElementById('lng').value = results[0].geometry.location.lng();
+
+          // マーカーのドロップ（ドラッグ終了）時のイベント
+          google.maps.event.addListener( marker, 'dragend', function(ev){
+              // イベントの引数evの、プロパティ.latLngが緯度経度
+              document.getElementById('lat').value = ev.latLng.lat();
+              document.getElementById('lng').value = ev.latLng.lng();
+          });
+      } else {
+        alert('該当する結果がありませんでした：' + status);
+      }
+    });   
+  }
+
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjXcA0P6kv1l2KRpdEBgpd9YxeEdhPAgw&callback=initMap" async defer></script>
+</div>
