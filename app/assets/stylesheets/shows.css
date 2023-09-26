@@ -6,30 +6,35 @@ h6{
 .show-body{
     font-size: 40px;
     position: relative;
-    top: 450px;
+    top: 200px;
+    left: 650px;
+    margin-right: 650px;
 
 }
 
 
 .auto-resize-video-2{
-    height: 400px;
-    overflow: hidden;
-    object-fit: contain;
-}
-
-.auto-resize-image-2{
-    height: 300px;
+    height: 500px;
     overflow: hidden;
     object-fit: contain;
     position: relative;
-    bottom: 200px;
+    left: 700px;
+    bottom: 160px;
+}
+
+.auto-resize-image-2{
+    height: 400px;
+    overflow: hidden;
+    object-fit: contain;
+    position: relative;
+    top: 250px;
 
 }
 
 .show-at{
     font-size: 20px;
     position: relative;
-    top: 350px;
+    top: 250px;
 
 
 }
@@ -38,7 +43,12 @@ h6{
 .show-teamname{
     font-size: 35px;
     position: relative;
-    top: 310px;
+    left: 1000px;
+    margin-right: 1100px;
+    bottom: 45px;
+    border: solid 3px;
+    text-align: center;
+
 }
 
 
@@ -46,7 +56,11 @@ h6{
 .show-title{
     font-size: 40px;
     position: relative;
-    top: 200px;
+    bottom: 100px;
+    left: 250px;
+    margin-right: 1140px;
+    border: solid 3px;
+    text-align: center;
 
 }
 
@@ -77,5 +91,50 @@ h6{
     font-size: 50px;
     border: solid 3px gold;
     text-align: center;
+    position: relative;
+    bottom: 1090px;
 }
+
+.teamname-show{
+    width: 200px;
+    height: 80px;
+    background-color: black;
+    color: rgb(240, 55, 55);
+    font-size: 50px;
+    border: solid 3px rgb(240, 55, 55);
+    text-align: center;
+    position: relative;
+    bottom: 1180px;
+    left: 700px;
+    margin-right: 700px;
+}
+
+.body-show{
+    width: 400px;
+    height: 80px;
+    background-color: black;
+    color: rgb(103, 167, 252);
+    font-size: 50px;
+    border: solid 3px rgb(103, 167, 252);
+    text-align: center;
+    position: relative;
+    bottom: 1120px;
+}
+
+h10{
+    font-size: 35px;
+    position: relative;
+    margin-left: 30px;
+}
+
+.like-user{
+    position: relative;
+    bottom: 380px;
+}
+
+h50{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
 

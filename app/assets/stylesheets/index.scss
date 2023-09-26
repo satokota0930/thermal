@@ -31,6 +31,7 @@ h11 {
     height: 300px;
     overflow: hidden;
     object-fit: contain;
+    margin: 100px;
 }
 
 h4{
@@ -116,12 +117,20 @@ body-1 {
 }
 
 .index-title{
-    font-size: 30px;
+    font-size: 40px;
+    position: relative;
+    left: 500px;
+    bottom: 350px;
+    margin-right: 500px;
 
 }
 
 .index-body{
     font-size: 30px;
+    position: relative;
+    left: 600px;
+    bottom: 300px;
+    margin-right: 600px;
 
 }
 
@@ -171,12 +180,24 @@ body-1 {
     left: 170px;
 }
 
-.wrapper__video2{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    z-index: -100;
-    position: fixed;
+.tweets-container{
+    height: 500px;
+}
+
+.heart-index{
+    font-size: 30px;
+    position: relative;
+    left: 900px;
+    bottom: 250px;
+    margin-right: 900px;
+}
+
+.delete{
+    font-size: 25px;
+    position: relative;
+    bottom: 290px;
+    left: 1200px;
+    margin-right: 1200px;
 }
 
 

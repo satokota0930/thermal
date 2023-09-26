@@ -2,7 +2,6 @@
   <h8>マイページ</h8>
   <p1>ユーザーネーム : <%= @user.name %></p1>
   <p2>メールアドレス : <%= @user.email %></p2>
-  <p3>自己紹介 : <%= @user.profile %></p3>
   <%= image_tag @user.image_url, class: "auto-resize-image3", resize: "780x480^", crop: "780x480+0+0" if @user.image? %>
 </div>
 
@@ -18,7 +17,6 @@
   <h15>あなたの投稿一覧</h15>
   <div class="my-post">
     <% @user.balls.each do |t| %>
-      <p4><%= t.user.name %></p4>
       <p5><%= t.title %></p5>
       <p6><%= image_tag t.image_url, class: "auto-resize-image4", resize: "780x480^", crop: "780x480+0+0" if t.image? %></p6>
       
@@ -32,10 +30,10 @@
 <div class="mypage-like">
   <h16>あなたがいいねした投稿一覧</h16>
   <% @user.liked_balls.each do |t| %>
-    <p7><%= t.user.name %></p7>
-    <p8><%= t.title %></p8>
-    <p9><%= image_tag t.image_url, class: "auto-resize-image5", resize: "780x480^", crop: "780x480+0+0" if t.image? %></p9>
-
+    <div class="like-photo">
+      <p9><%= image_tag t.image_url, class: "auto-resize-image5", resize: "780x480^", crop: "780x480+0+0" if t.image? %></p9>
+      <p7><%= t.user.name %></p7>
+    </div>
   <% end %>
 </div>
 <!-- ここまで-->

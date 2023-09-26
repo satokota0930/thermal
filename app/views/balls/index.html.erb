@@ -1,50 +1,35 @@
 <div class="index">
- <div class="video-wrap2">
-    <div class="match-result">
-     <date> 試合結果 </date>
-     <score-1> 1 </score>
-     <score-2> 1 </score>
-      <div class="team-logo1">
-        <img src="https://www.montedioyamagata.jp/wp-content/themes/montedio/assets/img/emblem/yamagata.png" width="500" height="589" alt="写真">
-      </div>
-
-      <div class="team-logo2">
-        <img src="https://jleague.r10s.jp/img/common/img_club_akita.png" width="300" height="300" alt="写真">
-      </div>
-
+  <div class="match-result">
+    <date> 試合結果 </date>
+    <score-1> 1 </score>
+    <score-2> 1 </score>
+    <div class="team-logo1">
+      <img src="https://www.montedioyamagata.jp/wp-content/themes/montedio/assets/img/emblem/yamagata.png" width="500" height="589" alt="写真">
     </div>
 
-    <div class="next-match">
-     <n-match> NEXT MATCH </n-match>
-     <detail> 
-       09/29 NDソフトスタジアム山形
-     </detail>
-
-     <div class="team-logo3">
-       <img src="https://jleague.r10s.jp/img/common/img_club_tokushima.png" width="300" height="300" alt="写真">
-     </div>
-
-     <div class="team-logo4">
-        <img src="https://www.montedioyamagata.jp/wp-content/themes/montedio/assets/img/emblem/yamagata.png" width="500" height="589" alt="写真">
-     </div>
-
+    <div class="team-logo2">
+      <img src="https://jleague.r10s.jp/img/common/img_club_akita.png" width="300" height="300" alt="写真">
     </div>
 
-    
-    <video autoplay loop muted class="wrapper__video2">
-      <source src="https://assets.mixkit.co/videos/preview/mixkit-soccer-fields-seen-from-the-air-42355-large.mp4">
-    </video>  
-
-
-
-
-
-   
   </div>
 
-  <div class="post">
-    <%= link_to "新規投稿へ", new_ball_path %>
+  <div class="next-match">
+    <n-match> NEXT MATCH </n-match>
+    <detail> 
+      09/29 NDソフトスタジアム山形
+    </detail>
+
+    <div class="team-logo3">
+      <img src="https://jleague.r10s.jp/img/common/img_club_tokushima.png" width="300" height="300" alt="写真">
+    </div>
+
+    <div class="team-logo4">
+      <img src="https://www.montedioyamagata.jp/wp-content/themes/montedio/assets/img/emblem/yamagata.png" width="500" height="589" alt="写真">
+    </div>
+
   </div>
+
+ 
 
 
   <h4>投稿を検索
@@ -52,7 +37,6 @@
       <%= text_field_tag :search %>
       <%= submit_tag '検索する'  %>
     <% end %>
-    <h11>投稿一覧</h11>
 
   </h4>
 
@@ -61,32 +45,25 @@
 
 
    
-  <div class="tweets-container">
+ <div class="tweets-container">
     <% @balls.each do |t| %>
 
-    
-     
+  
+    <%= image_tag t.image_url, class: "auto-resize-image", resize: "780x480^", crop: "780x480+0+0" if t.image? %>
+    <div class="index-title">
+      <%= t.title %>
+    </div>
 
-    <div style="index-image">
-     <%= image_tag t.image_url, class: "auto-resize-image", resize: "780x480^", crop: "780x480+0+0" if t.image? %>
-     <div class="index-title">
-       <%= t.title %>
-     </div>
+    <div class="index-body">
+      <%= t.body %>
+    </div>
 
-     <div class="index-body">
-       <%= t.body %>
-     </div>
+    <div class="index-adress">
+      <%= t.address %>
+    </div>
 
-     <div class="index-adress">
-       <%= t.address %>
-     </div>
-
-     <div class="index-user">
-       <%= t.user_id %>
-     </div>
-
-     
-     <% if user_signed_in? %>
+    <div class="heart-index">
+      <% if user_signed_in? %>
         <% if current_user.already_liked?(t) %>
             <%= link_to ball_like_path(id: t.id, ball_id: t.id), method: :delete do %>
               <i class="fas fa-heart"></i><%= t.likes.count %> 
@@ -96,21 +73,23 @@
               <i class="far fa-heart"></i><%= t.likes.count %>
             <% end %>
         <% end %>
-     <% else %>
 
-     <i class="far fa-heart"></i><%= t.likes.count %>
+        
       <% end %>
-        <div class="delete">
-          <%= link_to "詳細へ", ball_path(t.id) %>  
-          <% if user_signed_in? && current_user.id == t.user_id %>
-          <%= link_to "編集する", edit_ball_path(t.id) %>
-          <%= link_to "削除する", ball_path(t.id), method: :delete %>
-          <% end %> 
-        </div>
-     <% end %>
-
-
     </div>
+
+
+      <div class="delete">
+        <%= link_to "詳細へ", ball_path(t.id) %>  
+        <% if user_signed_in? && current_user.id == t.user_id %>
+        <%= link_to "削除する", ball_path(t.id), method: :delete %>
+        <% end %> 
+      </div>
+    <% end %>
+
+
     
+
+  </div>
 </div>
 

@@ -59,15 +59,18 @@
     <%= f.file_field :video, :accept => 'video/*' %>
   </div>
 
+  <div style="google-map">
+    <%= f.label :lat,"緯度" %>
+    <%= f.text_field :lat,:value =>"緯度", id: :lat %>
+    <%= f.label :lng,"経度" %>
+    <%= f.text_field :lng,:value =>"経度", id: :lng %>
+  </div>
 
 </div>
 
-<div style="google-map;position: relative;top: 300px;left: 20px;font-size: 20px">
-  <%= f.label :lat,"緯度" %>
-  <%= f.text_field :lat,:value =>"緯度", id: :lat %>
-  <%= f.label :lng,"経度" %>
-  <%= f.text_field :lng,:value =>"経度", id: :lng %>
+
 </div>
+
 
 <br>
   <%= f.submit "投稿する",class:"new-post"%>
@@ -78,20 +81,28 @@
  <%= link_to "投稿一覧に戻る", balls_path %>
 </div>
 
-<h3>開催スタジアム</h3>
+<div class="30">
+ <h3>開催スタジアム</h3>
 
-<div id='map-search'>
-  <input id="address" type="textbox" value="ここに入力">
-  <input type="button" value="スタジアムを検索" onclick="codeAddress()">
-  <p>マーカーをドラック＆ドロップで位置の調整ができます。<p>
-</div>
+  <div class="stadiam">
+    <input id="address" type="textbox" value="ここに入力">
+    <input type="button" value="スタジアムを検索" onclick="codeAddress()">
+    <p40>マーカーをドラック＆ドロップで位置の調整ができます。<p40>
+  </div>
+  
+<div id='map'></div>
 
 
-<div class="map">
+
   <style>
     #map {
-      height: 300px;
-      width: 300px;
+      height: 350px;
+      width: 700px;
+      position: relative;
+      bottom: 200px;
+      left: 700px;
+
+
     }
   </style>
 
@@ -152,3 +163,6 @@
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjXcA0P6kv1l2KRpdEBgpd9YxeEdhPAgw&callback=initMap" async defer></script>
 </div>
+
+
+  
