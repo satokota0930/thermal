@@ -125,6 +125,7 @@ h10{
     font-size: 35px;
     position: relative;
     margin-left: 30px;
+    top: 500px;
 }
 
 .like-user{
@@ -137,4 +138,21 @@ h50{
     margin-left: 20px;
 }
 
+.stadiam-show{
+    font-size: 40px;
+    position: relative;
+    bottom: 350px;
+    background-color: black;
+    color: chartreuse;
+    width: 300px;
+    height: 80px;
+    text-align: center;
+    border: solid 3px chartreuse;
+    margin-left: 40px;
+}
+
+.stadiam2{
+    position: relative;
+    bottom: 100px;
+}
 
